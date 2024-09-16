@@ -1,0 +1,32 @@
+.favorite-button {
+    text-align: center;
+    display: block;
+    width: 100%;
+    color: var(--orange);
+    border: none;
+    background: transparent;
+    font-size: 1.8em;
+    margin: 0;
+    padding-block: 0;
+    padding-inline: 0;
+}
+
+a {
+    color: var(--blue);
+}
+
+ul {
+    list-style-type: none;
+    padding-inline-start: 0.3em;
+}
+
+.favourited:hover, .favourited:focus-visible {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.users {
+    list-style-type: none;
+    padding-inline-start: 0;
+    width: fit-content;
+}

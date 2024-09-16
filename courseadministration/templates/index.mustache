@@ -1,0 +1,51 @@
+<h1>{{header}}</h1>
+<table class="table table-striped table-bordered">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">{{cname}}</th>
+            <th scope="col">{{users}}</th>
+            <th scope="col">{{category}}</th>
+            <th scope="col">{{startdate}}</th>
+            <th scope="col">{{enddate}}</th>
+            <th scope="col">{{favourite}}</th>
+        </tr>
+    </thead>
+    <tbody>
+    {{#courses}}
+        <tr>
+            <td><a href="{{{wwwroot}}}/course/view.php?id={{id}}">{{fullname}}</a></td>
+            <td>
+                <details>
+                        <summary>{{show}}</summary>
+                        <ul>
+                        {{#users}}
+                            <li class="users">{{firstname}} {{lastname}}</li>
+                        {{/users}}
+                        </ul>
+                    </details>
+            </td>
+            <td>{{category}}</td>
+            <td>{{startdate}}</td>
+            <td>{{enddate}}</td>
+            <td>
+                <form method="post" action="">
+                    <input type="hidden" name="sesskey" value="{{sesskey}}">
+                    <input type="hidden" name="courseid" value="{{id}}">
+                    {{#is_favorite}}
+                        <button type="submit" name="action" value="unfavorite" class="favorite-button favorited">
+                            {{#pix}} i/star, core {{/pix}}
+                        </button>
+                    {{/is_favorite}}
+                    {{^is_favorite}}
+                        <button type="submit" name="action" value="favorite" class="favorite-button">
+                            {{#pix}} i/star-o, core {{/pix}}
+                        </button>
+                    {{/is_favorite}}
+                </form>
+            </td>
+        </tr>
+    {{/courses}}
+    </tbody>
+</table>
+
+
